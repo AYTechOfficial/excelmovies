@@ -1,0 +1,143 @@
+/* ExcelMovies — ads-only site theme */
+:root {
+  --bg: #0a0c10;
+  --panel: #12151c;
+  --panel-2: #171b24;
+  --line: #232a36;
+  --accent: #e50914;
+  --accent-2: #ffb700;
+  --text: #e8eaed;
+  --muted: #9aa3ad;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+a { color: var(--accent-2); }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+/* ---------- header ---------- */
+.site-head {
+  background: linear-gradient(180deg, #0d1017, #0a0c10);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+.head-flex { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.logo {
+  font-size: 26px; font-weight: 800; letter-spacing: .5px;
+  color: #fff; text-decoration: none;
+}
+.logo span { color: var(--accent); }
+.tagline { color: var(--muted); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+.nav { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.nav a { color: var(--text); text-decoration: none; font-size: 14px; font-weight: 600; }
+.nav a:hover { color: var(--accent-2); }
+.nav .nav-cta {
+  background: var(--accent); color: #fff !important;
+  padding: 8px 14px; border-radius: 8px;
+}
+
+/* ---------- generic ad slot ---------- */
+.ad {
+  display: flex;
+  margin: 18px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.ad iframe { margin: 0 auto; border: 0; display: block; flex-shrink: 0; }
+.ad-label {
+  text-align: center; font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: #5b6472; margin-top: -10px; margin-bottom: 14px;
+}
+.ad-native iframe { width: 100%; max-width: 900px; height: 320px; }
+
+/* ---------- hero ---------- */
+.hero { padding: 26px 0 10px; }
+.hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; align-items: center; }
+.hero h1 { font-size: clamp(28px, 5vw, 46px); line-height: 1.1; font-weight: 800; }
+.hero h1 em { color: var(--accent); font-style: normal; }
+.hero p { color: var(--muted); margin: 14px 0 20px; max-width: 560px; }
+.btn {
+  display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+  font-weight: 700; padding: 14px 22px; border-radius: 10px; font-size: 16px;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(229, 9, 20, .35); }
+.btn.ghost {
+  background: transparent; border: 1px solid var(--line); color: var(--text);
+  margin-left: 10px;
+}
+.hero-ad .ad { margin: 0; }
+
+/* ---------- sections ---------- */
+.section { margin: 34px 0; }
+.section-title {
+  font-size: 20px; font-weight: 800; margin-bottom: 4px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title::before { content: ""; width: 4px; height: 20px; background: var(--accent); border-radius: 2px; }
+.section-sub { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+
+/* ---------- sponsored tiles ---------- */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+.tile {
+  position: relative; display: flex; flex-direction: column; justify-content: flex-end;
+  aspect-ratio: 2 / 3; border-radius: 12px; padding: 14px;
+  text-decoration: none; color: #fff; overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.tile:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0, 0, 0, .5); }
+.tile .badge {
+  position: absolute; top: 10px; left: 10px;
+  background: rgba(0, 0, 0, .55); border: 1px solid rgba(255, 255, 255, .28);
+  font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 6px;
+}
+.tile .t-body strong { display: block; font-size: 17px; line-height: 1.2; text-shadow: 0 2px 6px rgba(0,0,0,.6); }
+.tile .t-body em { display: block; font-style: normal; font-size: 12px; color: rgba(255,255,255,.78); margin-top: 4px; }
+.tile .cta {
+  margin-top: 12px; align-self: flex-start;
+  background: var(--accent); padding: 7px 12px; border-radius: 8px;
+  font-size: 13px; font-weight: 700;
+}
+.g1 { background: linear-gradient(160deg, #6a040f, #e50914 70%, #ff758f); }
+.g2 { background: linear-gradient(160deg, #071a3a, #0353a4 70%, #48cae4); }
+.g3 { background: linear-gradient(160deg, #2b1055, #7597de); }
+.g4 { background: linear-gradient(160deg, #013a63, #2a9d8f 75%, #a7f4e0); }
+.g5 { background: linear-gradient(160deg, #3a0ca3, #f72585 80%); }
+.g6 { background: linear-gradient(160deg, #3c1518, #9c3325 65%, #ffb703); }
+.g7 { background: linear-gradient(160deg, #1b263b, #415a77 60%, #e0e1dd); }
+.g8 { background: linear-gradient(160deg, #001219, #005f73 70%, #94d2bd); }
+
+/* ---------- ad wall layouts ---------- */
+.wall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.wall .ad { margin: 0; }
+.cols { display: grid; grid-template-columns: 160px 1fr; gap: 16px; align-items: start; }
+.side { display: flex; flex-direction: column; gap: 16px; }
+
+/* ---------- footer ---------- */
+.site-foot { border-top: 1px solid var(--line); margin-top: 40px; padding: 26px 0 60px; background: #0c0e13; }
+.foot-note { text-align: center; color: var(--muted); font-size: 13px; margin: 18px 0; }
+.foot-nav { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 14px 0; }
+.foot-nav a { font-size: 13px; text-decoration: none; font-weight: 600; }
+.copy { text-align: center; color: #5b6472; font-size: 12px; margin-top: 18px; }
+
+/* ---------- 404 ---------- */
+.err-box { text-align: center; padding: 50px 0 20px; }
+.err-box h1 { font-size: 90px; color: var(--accent); line-height: 1; }
+.err-box p { color: var(--muted); margin: 12px 0 22px; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .cols { grid-template-columns: 1fr; }
+  .side { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .wall { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .wall { grid-template-columns: 1fr; }
+  .btn.ghost { margin-left: 0; margin-top: 10px; }
+}
