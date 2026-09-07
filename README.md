@@ -10,36 +10,60 @@ placement. Built for the domain `excelmovies.vercel.app`.
 | `index.html` | Home — hero, ad wall, native ads, sponsor tiles, sidebar skyscrapers |
 | `ads.html` | All Ads — every format showcased, repeated in every section |
 | `sponsored.html` | Sponsored — a click-wall of smartlink tiles (every tile = smartlink) |
+| `tasks.html` | Tasks — the AdsLab offerwall embedded full-page (offers, surveys, shortlinks) |
 | `404.html` | Not found — ad-stuffed anyway |
 
-## Ad networks wired in (Adsterra)
+## Ad networks wired in
 
-All 10 units you provided, placed per Adsterra's instructions:
+### Adsterra (all 10 units)
 
 - **Popunder** — `<head>` of every page (one per page, as recommended)
 - **Social Bar** — just before `</body>` on every page
 - **Native Banner** — via `ads/native.html` iframe, repeated across pages
 - **Banners** (728x90, 468x60, 320x50, 300x250, 160x600, 160x300) — via per-format
   wrapper files in `ads/`, repeated many times per page
+- **Smartlink** — the href of every clickable tile/button site-wide
 
-### Why wrapper files in `ads/`?
+Why wrapper files: Adsterra banner scripts use a global `atOptions` variable, so a
+format's snippet can only appear once per document. Serving each banner from its own
+small HTML file inside an `<iframe>` lets the same ad repeat any number of times.
 
-Adsterra banner scripts use a global `atOptions` variable, so a format's snippet
-**can only appear once per document**. Serving each banner from its own small HTML
-file inside an `<iframe>` lets the same ad repeat any number of times on a page —
-which is the whole point of an ads-only site.
+### AdsLab (from the vazionixfaucet integration spec)
 
-## Adslab slots
+Implemented — the client-side subset that a static site can run:
 
-You mentioned Adslab but didn't paste their snippets, so every page contains
-**clearly-marked `<!-- ADSLAB SLOT -->` comments** (head, top banner, hero, sidebar,
-mid-page, native, wall, bottom, footer). Paste Adslab code into those slots and
-the site supports both networks.
+| Unit | Placement | Where it runs |
+|---|---|---|
+| Banners (all 8 sizes: 728x90, 468x60, 320x50, 320x100, 300x250, 336x280, 160x600, 300x600) | `unit-*` IDs | every page, each size at most once per page (per spec), responsive gating: 728x90/468x60 desktop-only, 320x50/320x100 mobile-only |
+| Interstitial | `int-euZL0Ewr9Fql` | fires on the visitor's first click on every page, rate-limited to 1 per 60s per session (spec's fraud warning) |
+| Rewarded | `rew-wlWIoORtfsDg` | "Watch a Rewarded Ad" buttons on every page |
+| Tasks offerwall | `task-qhgx1qTcI5gH` | embedded iframe on `tasks.html`, plus "open in new tab" fallback |
+
+All of it loads through `assets/adslab.js` (one file to edit if placement IDs change):
+
+- Sets `window.ADSLAB_INT / ADSLAB_REW / ADSLAB_USER` **before** `sdk.js` loads (spec §3)
+- Loads the SDK from `https://adslab.me/api/sdk.js`
+- Feature-detects both documented trigger APIs (`adslabShowInterstitial` / `showint_adslab`, same for rewarded) (spec §8.3)
+- Registers banner units with `window.adslab_banners` + injects `serve.adslab.me/api/banner/js` once (spec §7)
+- `ADSLAB_USER` is a stable per-session visitor ID (`sessionStorage`) — this site has no accounts, and the spec requires a non-empty uid
+- Rewarded buttons show "Reward pending…" — **nothing is credited client-side**, per spec (no promise-resolution crediting)
+
+**Deliberately NOT implemented** (they require a backend, a database and the server-only
+secrets — none of which a static site has): postback crediting (spec §4), captcha
+webhook (§5), server-side tasks proxy (§6a), transaction ledger (§1/§2).
+
+### Secrets handling — important
+
+The AdsLab **Publisher API Key** and **Security Hash** are server-only values. They are
+**not present anywhere in this repo or site output**. The spec file that contains them
+(`AdsLab Integration Spec — vazionixfaucet.md`) is listed in `.gitignore` and is never
+committed. If those keys were ever pushed to a public repo in any other project, rotate
+them in the AdsLab dashboard.
 
 ## Smartlink
 
-The smartlink URL is used everywhere anything is clickable:
-hero buttons, nav CTA, all 16+ sponsor tiles, 404 page CTAs.
+The Adsterra smartlink URL is used everywhere anything is clickable: hero buttons,
+nav CTA, all 16+ sponsor tiles, 404 page CTAs.
 
 ## Deploy to Vercel
 
@@ -50,5 +74,6 @@ vercel --prod
 ```
 
 Or push to GitHub and import the repo in the Vercel dashboard (framework preset:
-**Other**, no build command, output dir `.`). `vercel.json` already sets clean
-URLs and `/ads`, `/sponsored`, `/all-ads`, `/click` rewrites.
+**Other**, no build command, output dir `.`). `vercel.json` already sets clean URLs
+and `/ads`, `/sponsored`, `/all-ads`, `/click`, `/offerwall`, `/earn` rewrites.
+`/tasks` works automatically via clean URLs.

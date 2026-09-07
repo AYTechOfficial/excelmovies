@@ -1,0 +1,10 @@
+# AdsLab spec file contains SERVER-ONLY secrets (API key + security hash) — never commit it
+AdsLab*
+
+# env files never belong in a static site repo
+.env
+.env.*
+
+# OS junk
+.DS_Store
+Thumbs.db

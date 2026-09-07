@@ -131,6 +131,28 @@ a { color: var(--accent-2); }
 .err-box h1 { font-size: 90px; color: var(--accent); line-height: 1; }
 .err-box p { color: var(--muted); margin: 12px 0 22px; }
 
+/* ---------- AdsLab units ---------- */
+.adslab-slot {
+  margin: 0 auto 18px;
+  max-width: 100%;
+  overflow: hidden;
+}
+.adslab-wrap { margin: 18px 0; }
+/* Responsive gating per AdsLab spec: 728x90 & 468x60 desktop only; 320x50 & 320x100 mobile only */
+.only-desktop { display: block; }
+.only-mobile { display: none; }
+@media (max-width: 727px) {
+  .only-desktop { display: none; }
+  .only-mobile { display: block; }
+}
+/* Rewarded-ad buttons reuse the .btn look via data attribute */
+.btn[data-em-rew] { cursor: pointer; background: #6a0dad; border: 0; font: inherit; }
+.btn[data-em-rew]:hover { box-shadow: 0 10px 24px rgba(106, 13, 173, .4); }
+.btn[data-em-rew][data-state="pending"] { opacity: .7; pointer-events: none; }
+.offerwall {
+  width: 100%; height: 800px; border: 0; border-radius: 12px; background: #fff;
+}
+
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .cols { grid-template-columns: 1fr; }

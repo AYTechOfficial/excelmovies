@@ -20,6 +20,8 @@
     { "source": "/ads", "destination": "/ads.html" },
     { "source": "/sponsored", "destination": "/sponsored.html" },
     { "source": "/all-ads", "destination": "/ads.html" },
-    { "source": "/click", "destination": "/sponsored.html" }
+    { "source": "/click", "destination": "/sponsored.html" },
+    { "source": "/offerwall", "destination": "/tasks.html" },
+    { "source": "/earn", "destination": "/tasks.html" }
   ]
 }

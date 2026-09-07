@@ -11,12 +11,14 @@
   <!-- POPUNDER (before </head>) -->
   <script src="https://pl31228415.profitableratecpmnetwork.com/97/9e/d1/979ed1216aeac15ee5063592661865e8.js"></script>
 
-  <!-- ADSLAB SLOT — HEAD: paste Adslab head/global script here -->
+  <!-- AdsLab SDK config + loader (config must run before sdk.js) -->
+  <script src="assets/adslab.js"></script>
+  <script src="https://adslab.me/api/sdk.js" async></script>
 </head>
 <body>
 
   <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-  <!-- ADSLAB SLOT — TOP BANNER: paste Adslab banner code here -->
+  <div class="adslab-wrap only-desktop"><script>emAdslabUnit("728x90")</script></div>
 
   <header class="site-head">
     <div class="wrap head-flex">
@@ -26,13 +28,14 @@
         <a href="/">Home</a>
         <a href="ads.html">All Ads</a>
         <a href="sponsored.html">Sponsored</a>
+        <a href="tasks.html">Tasks</a>
         <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">Watch Now</a>
       </nav>
     </div>
   </header>
 
   <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
-  <!-- ADSLAB SLOT — BELOW HEADER: paste Adslab banner code here -->
+  <div class="adslab-wrap only-desktop"><script>emAdslabUnit("468x60")</script></div>
 
   <section class="hero">
     <div class="wrap hero-grid">
@@ -48,19 +51,19 @@
       </div>
       <div class="hero-ad">
         <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-        <!-- ADSLAB SLOT — HERO: paste Adslab banner code here -->
+        <div class="adslab-wrap"><script>emAdslabUnit("300x250")</script></div>
       </div>
     </div>
   </section>
 
   <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
-  <!-- ADSLAB SLOT — BELOW HERO: paste Adslab banner code here -->
+  <p style="text-align:center"><button class="btn" data-em-rew>▶ More Ads? Watch a Rewarded One</button></p>
 
   <main class="wrap cols">
     <aside class="side">
       <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no"></iframe></div>
       <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no"></iframe></div>
-      <!-- ADSLAB SLOT — SIDEBAR: paste Adslab vertical/skyscraper code here -->
+      <div class="adslab-wrap"><script>emAdslabUnit("160x600")</script></div>
     </aside>
 
     <div>
@@ -107,13 +110,14 @@
         <h2 class="section-title">More Sponsored Content</h2>
         <p class="section-sub">Native ads, served fresh from our sponsors.</p>
         <div class="ad ad-native"><iframe src="ads/native.html" scrolling="no"></iframe></div>
-        <!-- ADSLAB SLOT — NATIVE 1: paste Adslab native/banner code here -->
+        <div class="adslab-wrap"><script>emAdslabUnit("336x280")</script></div>
         <div class="wall">
           <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
           <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
           <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
         </div>
-        <!-- ADSLAB SLOT — WALL: paste Adslab banner codes here -->
+        <div class="adslab-wrap"><script>emAdslabUnit("300x600")</script></div>
+        <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x100")</script></div>
       </section>
 
       <section class="section">
@@ -126,14 +130,14 @@
         <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
         <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
         <div class="ad ad-native"><iframe src="ads/native.html" scrolling="no"></iframe></div>
-        <!-- ADSLAB SLOT — MID PAGE: paste Adslab banner code here -->
+        <p style="margin-top:22px"><button class="btn" data-em-rew>▶ Watch a Rewarded Ad</button></p>
       </section>
 
       <section class="section">
         <h2 class="section-title">Almost at the end — ads first</h2>
         <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
         <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-        <!-- ADSLAB SLOT — BOTTOM: paste Adslab banner code here -->
+        <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x50")</script></div>
       </section>
     </div>
   </main>
@@ -148,6 +152,7 @@
         <a href="/">Home</a>
         <a href="ads.html">All Ads</a>
         <a href="sponsored.html">Sponsored</a>
+        <a href="tasks.html">Tasks</a>
       </div>
       <p class="foot-note">ExcelMovies is a demonstration ads-only site. Every element you see is a sponsored ad placement.</p>
       <p class="copy">&copy; 2026 ExcelMovies — excelmovies.vercel.app</p>
@@ -157,6 +162,5 @@
   <!-- SOCIAL BAR (above </body>) -->
   <script src="https://pl31228417.profitableratecpmnetwork.com/b1/57/ac/b157acbff2f366f8477e6874b4ca10c6.js"></script>
 
-  <!-- ADSLAB SLOT — FOOT/POPUNDER: paste Adslab footer/global script here -->
 </body>
 </html>
