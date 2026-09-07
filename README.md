@@ -11,6 +11,7 @@ placement. Built for the domain `excelmovies.vercel.app`.
 | `ads.html` | All Ads — every format showcased, repeated in every section |
 | `sponsored.html` | Sponsored — a click-wall of smartlink tiles (every tile = smartlink) |
 | `tasks.html` | Tasks — the AdsLab offerwall embedded full-page (offers, surveys, shortlinks) |
+| `go.html` | Go — **premium page**: popunder + smartlink ONLY (Adsterra's highest-CPM formats, ~$0.7–0.8 CPM). No banners, no social bar, no other formats competing. Every visible element is a smartlink. Reachable at `/go`, `/premium`, `/continue`. |
 | `404.html` | Not found — ad-stuffed anyway |
 
 ## Ad networks wired in

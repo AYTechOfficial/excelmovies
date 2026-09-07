@@ -21,6 +21,9 @@
     { "source": "/sponsored", "destination": "/sponsored.html" },
     { "source": "/all-ads", "destination": "/ads.html" },
     { "source": "/click", "destination": "/sponsored.html" },
+    { "source": "/go", "destination": "/go.html" },
+    { "source": "/premium", "destination": "/go.html" },
+    { "source": "/continue", "destination": "/go.html" },
     { "source": "/offerwall", "destination": "/tasks.html" },
     { "source": "/earn", "destination": "/tasks.html" }
   ]
