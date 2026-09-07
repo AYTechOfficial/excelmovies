@@ -8,7 +8,8 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><text x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>X</text></svg>">
   <link rel="stylesheet" href="assets/style.css">
 
-  <!-- AdsLab SDK config + loader (config must run before sdk.js) -->
+  <!-- AdsLab SDK config + loader (config must run before sdk.js).
+       If AdsLab doesn't serve for this domain, its slots auto-swap to Adsterra. -->
   <script src="assets/adslab.js"></script>
   <script src="https://adslab.me/api/sdk.js" async></script>
 
@@ -41,8 +42,8 @@
         <div>
           <h1>Sponsored <em>Tasks</em></h1>
           <p>
-            Offers, surveys, shortlinks, PTC, Telegram — the whole offerwall is one giant
-            block of paid ad placements. Start any task; it&rsquo;s all advertising, all the way down.
+            Offers, surveys, shortlinks, PTC — the whole page is paid ad placements.
+            Start anywhere; it&rsquo;s advertising all the way down.
           </p>
           <button class="btn" data-em-rew>▶ Watch a Rewarded Ad</button>
           <a class="btn ghost" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">Continue to Sponsor</a>
@@ -57,27 +58,67 @@
     <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
 
     <section class="section">
-      <h2 class="section-title">The Offerwall — All Tasks</h2>
+      <h2 class="section-title">Sponsored Task Wall</h2>
+      <p class="section-sub">Every task is a paid placement — click any to start.</p>
+      <div class="grid">
+        <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Quick Survey</strong><em>2 min — instant reward</em><span class="cta">Start</span></div>
+        </a>
+        <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Visit Sponsor</strong><em>PTC — one click, done</em><span class="cta">Visit</span></div>
+        </a>
+        <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Shortlink Hop</strong><em>Skip 2 pages, claim reward</em><span class="cta">Open</span></div>
+        </a>
+        <a class="tile g8" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Install App</strong><em>CPI offer — highest payout</em><span class="cta">Install</span></div>
+        </a>
+        <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Sign Up Bonus</strong><em>Email submit — 30s</em><span class="cta">Sign Up</span></div>
+        </a>
+        <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Play &amp; Win</strong><em>Game offer — 1 min</em><span class="cta">Play</span></div>
+        </a>
+        <a class="tile g7" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Watch Trailer</strong><em>Video view — instant</em><span class="cta">Watch</span></div>
+        </a>
+        <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <span class="badge">Task</span>
+          <div class="t-body"><strong>Claim Prize</strong><em>Rewarded action — top tier</em><span class="cta">Claim</span></div>
+        </a>
+      </div>
+    </section>
+
+    <div class="ad ad-native"><iframe src="ads/native.html" scrolling="no"></iframe></div>
+
+    <section class="section">
+      <h2 class="section-title">Bonus Offerwall</h2>
       <p class="section-sub">
-        Powered by AdsLab. If the wall below does not render, use the direct link instead.
+        External offerwall — if it doesn&rsquo;t load for your region, the ads above have you covered.
       </p>
       <div class="adslab-wrap">
         <iframe class="offerwall" id="offerwall" referrerpolicy="no-referrer-when-downgrade" allow="clipboard-write"></iframe>
         <p class="section-sub" style="margin-top:10px">
-          Wall not loading? <a id="offerwall-link" href="https://adslab.me/" target="_blank" rel="noopener noreferrer">Open the offerwall in a new tab →</a>
+          Not loading? <a id="offerwall-link" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" target="_blank" rel="noopener noreferrer nofollow">Open the sponsor wall in a new tab →</a>
         </p>
       </div>
       <script>
         (function () {
           var f = document.getElementById("offerwall");
-          var url = emTaskUrl();
-          f.src = url;
-          document.getElementById("offerwall-link").href = url;
+          f.src = emTaskUrl();
+          emOfferwallWatch(f);
+          document.getElementById("offerwall-link").href =
+            "https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6";
         })();
       </script>
     </section>
-
-    <div class="ad ad-native"><iframe src="ads/native.html" scrolling="no"></iframe></div>
 
     <section class="section">
       <h2 class="section-title">More Ads While You Decide</h2>
@@ -90,6 +131,7 @@
       <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x100")</script></div>
       <div class="adslab-wrap"><script>emAdslabUnit("160x600")</script></div>
       <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
+      <div class="ad ad-native"><iframe src="ads/native.html" scrolling="no"></iframe></div>
       <button class="btn" data-em-rew>▶ Watch Another Rewarded Ad</button>
     </section>
   </main>

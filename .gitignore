@@ -1,5 +1,5 @@
 # AdsLab spec file contains SERVER-ONLY secrets (API key + security hash) — never commit it
-AdsLab*
+AdsLab Integration*
 
 # env files never belong in a static site repo
 .env

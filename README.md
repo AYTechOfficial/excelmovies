@@ -48,6 +48,18 @@ All of it loads through `assets/adslab.js` (one file to edit if placement IDs ch
 - `ADSLAB_USER` is a stable per-session visitor ID (`sessionStorage`) — this site has no accounts, and the spec requires a non-empty uid
 - Rewarded buttons show "Reward pending…" — **nothing is credited client-side**, per spec (no promise-resolution crediting)
 
+**Adsterra fallback system** (`assets/adslab.js`):
+
+AdsLab placements were registered for a different domain (`vazionixfaucet`), so they may
+not serve on `excelmovies.vercel.app`. Every AdsLab slot therefore self-checks after a
+4-second grace period: if it hasn't filled, it's swapped for the matching Adsterra banner
+(nearest size for formats Adsterra doesn't offer — 320x100→320x50, 336x280→300x250,
+300x600→160x600). Rewarded buttons route to the Adsterra smartlink when the AdsLab SDK
+is absent, and a blank offerwall iframe hides itself so the Adsterra content below it
+takes over. Result: **no ad box is ever empty — Adsterra loads everywhere.** If AdsLab
+starts serving (after adding this domain in their dashboard), it wins the race and its
+own creative stays. The swap is one file (`assets/adslab.js`) — adjust `GRACE` to tune.
+
 **Deliberately NOT implemented** (they require a backend, a database and the server-only
 secrets — none of which a static site has): postback crediting (spec §4), captcha
 webhook (§5), server-side tasks proxy (§6a), transaction ledger (§1/§2).
