@@ -14,6 +14,10 @@
   /* ---------- config (public placement IDs from the spec) ---------- */
   var INT = "int-cBazGC3l6mVv";
   var REW = "rew-bLIxi4pMugOB";
+  /* Tasks offerwall ID for this domain (dashboard: task-EEqABoaHh2GA).
+   * Reserved — the offerwall UI was removed by choice; re-add emTaskUrl()
+   * and the tasks.html iframe if you want it back. */
+  var TASK = "task-EEqABoaHh2GA";
   var SMARTLINK = "https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6";
 
   /* How long to wait for an AdsLab banner to fill before swapping to Adsterra. */
@@ -64,7 +68,12 @@
     return f;
   }
 
-  /* An AdsLab slot counts as filled once the serve script put real content in it. */
+  /* An AdsLab slot counts as filled once the serve script put real content in it.
+   * NOTE: when AdsLab rejects the domain ("Unauthorized Domain" error page), it
+   * still mounts its own nested iframe — cross-origin, so the error cannot be
+   * detected from here. The slot therefore counts as filled and no fallback
+   * fires; fixing that case requires authorizing the domain in the AdsLab
+   * dashboard, not client-side code. */
   function slotFilled(box) {
     if (box.childElementCount > 0) return true;
     var bg = box.currentStyle ? box.currentStyle.backgroundImage
