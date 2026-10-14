@@ -19,6 +19,7 @@
   "rewrites": [
     { "source": "/ads", "destination": "/ads.html" },
     { "source": "/sponsored", "destination": "/sponsored.html" },
+    { "source": "/webseries", "destination": "/webseries.html" },
     { "source": "/all-ads", "destination": "/ads.html" },
     { "source": "/click", "destination": "/sponsored.html" },
     { "source": "/go", "destination": "/go.html" },

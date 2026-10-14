@@ -64,7 +64,8 @@
       "/ads": "ads", "/all-ads": "ads",
       "/sponsored": "sponsored", "/click": "sponsored",
       "/tasks": "tasks", "/offerwall": "tasks", "/earn": "tasks",
-      "/go": "go", "/premium": "go", "/continue": "go"
+      "/go": "go", "/premium": "go", "/continue": "go",
+      "/webseries": "webseries"
     };
     var key = map[path];
     if (!key) return;

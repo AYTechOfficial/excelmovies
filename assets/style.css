@@ -522,3 +522,25 @@ img, iframe { max-width: 100%; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- webseries (AdsLab-only wall) ---------- */
+.ws-head { text-align: center; padding: 40px 0 4px; }
+.ws-head h1 { font-size: clamp(30px, 5vw, 46px); font-weight: 800; line-height: 1.1; }
+.ws-head h1 em { color: var(--accent); font-style: normal; }
+.ws-head p { color: var(--muted); margin-top: 10px; }
+.ws-stack {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 34px; padding: 30px 0 40px;
+}
+.ws-stack .adslab-wrap { margin: 0; }
+.ws-stack .adslab-slot { margin: 0 auto; }
+.ws-flex {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  align-items: flex-start; gap: 30px; width: 100%;
+}
+.ws-flex .adslab-wrap { margin: 0; }
+.ws-flex .adslab-slot { margin: 0 auto; }
+@media (max-width: 727px) {
+  .ws-stack { gap: 26px; }
+  .ws-flex { gap: 22px; }
+}

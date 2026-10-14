@@ -115,12 +115,24 @@
    * Domain" rejection). If a slot stays empty after GRACE, the Adsterra
    * fallback swaps it so no ad box is ever left blank. */
   var BANNERS_ENABLED = true;
+
+  /* Optional per-page modes (webseries.html — set these BEFORE this file):
+   *   ADSLAB_REPEAT      — allow the same unit ID to mount several times on
+   *                        one page (normal pages enforce the one-per-page
+   *                        rule from spec §7).
+   *   ADSLAB_NO_FALLBACK — AdsLab ONLY: never swap an unfilled slot to
+   *                        Adsterra; the empty slot is simply removed so the
+   *                        layout stays clean. */
+  var REPEAT = window.ADSLAB_REPEAT === true;
+  var NO_FALLBACK = window.ADSLAB_NO_FALLBACK === true;
+  var mountSeq = 0;
   window.emAdslabUnit = function (size) {
     if (!BANNERS_ENABLED) return;
     var unit = SIZES[size];
     if (!unit) return;
-    /* Spec §7: "Do not mount the same unit ID twice on one page." */
-    if (mounted[unit]) return;
+    /* Spec §7: "Do not mount the same unit ID twice on one page." —
+     * unless the page opted into repeats. */
+    if (!REPEAT && mounted[unit]) return;
     mounted[unit] = true;
 
     /* Responsive gating: 728x90 & 468x60 desktop only; 320x50 & 320x100 mobile
@@ -136,13 +148,14 @@
     var wh = size.split("x");
     box.style.width = wh[0] + "px";
     box.style.height = wh[1] + "px";
-    box.id = "adslab-b-" + unit;
+    box.id = "adslab-b-" + unit + (REPEAT ? "-" + (++mountSeq) : "");
     wrap.appendChild(box);
 
     /* The fallback system: if AdsLab hasn't filled the slot by GRACE ms, swap
      * in the matching Adsterra banner so no ad box is ever left empty. */
     setTimeout(function () {
       if (slotFilled(box)) return;               /* AdsLab won — keep it. */
+      if (NO_FALLBACK) { box.remove(); return; } /* AdsLab-only page: collapse the empty slot, no Adsterra. */
       var fb = ADSTERRA[size];
       if (!fb) return;
       var holder = document.createElement("div");
