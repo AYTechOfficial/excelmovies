@@ -50,6 +50,25 @@ test("middleware rejects a forged cookie value", async () => {
   assert.equal(res.status, 302);
 });
 
+test("middleware does NOT intercept /gate (regression: infinite redirect loop)", async () => {
+  const req = new Request("https://excelmovies.vercel.app/gate");
+  const res = await middleware(req);
+  assert.equal(res, undefined, "/gate must be served directly, never redirected");
+});
+
+test("middleware does NOT intercept /gate.html either", async () => {
+  const req = new Request("https://excelmovies.vercel.app/gate.html");
+  const res = await middleware(req);
+  assert.equal(res, undefined, "/gate.html must be served directly, never redirected");
+});
+
+test("middleware still intercepts /api/login with GET (405 comes from the handler, not a redirect)", async () => {
+  /* api/login stays excluded from middleware — assert a different protected path still redirects */
+  const req = new Request("https://excelmovies.vercel.app/ads.html");
+  const res = await middleware(req);
+  assert.equal(res && res.status, 302);
+});
+
 test("middleware allows requests carrying the valid cookie", async () => {
   const token = await tokenFor();
   const req = new Request("https://excelmovies.vercel.app/", {
