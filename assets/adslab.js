@@ -110,7 +110,14 @@
     "300x600": "unit-4xxc94u58"
   };
   var mounted = {};
+  /* AdsLab banner mounting is DISABLED: the banner unit IDs below belong to the
+   * old account, whose serve endpoint returns "Unauthorized Domain:
+   * excelmovies.vercel.app" inside every slot (cross-origin — cannot fall back
+   * to Adsterra). Set BANNERS_ENABLED = true and swap SIZES to the unit IDs
+   * created under the active "Excel Movies" site entry to re-enable. */
+  var BANNERS_ENABLED = false;
   window.emAdslabUnit = function (size) {
+    if (!BANNERS_ENABLED) return;
     var unit = SIZES[size];
     if (!unit) return;
     /* Spec §7: "Do not mount the same unit ID twice on one page." */
