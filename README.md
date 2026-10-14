@@ -7,9 +7,10 @@ placement. Built for the domain `excelmovies.vercel.app`.
 
 Ultra-premium OTT aesthetic (`assets/style.css` + `assets/site.js`): glass sticky
 header with active-nav states and a mobile drawer, aurora hero, poster tiles with
-3D hover, scroll-reveal animations, scroll progress bar, back-to-top, shimmer-on-load
-ad frames and a keyboard-driven sponsor search (press `/`). Ads are rendered as
-"cinema screens" strictly **in document flow** — never floating, fixed or sticky.
+3D hover, scroll-reveal animations, scroll progress bar, back-to-top and a
+keyboard-driven sponsor search (press `/`). Ads render **bare** — no frames or
+containers — strictly in document flow, below the sticky navbar on every page;
+never floating, fixed or sticky.
 Asset URLs are versioned (`?v=2`) for cache-safe deploys. Every page mounts all
 8 AdsLab banner units (desktop/mobile gating per the AdsLab spec) plus its full
 Adsterra wrapper set; rewarded buttons route through AdsLab with the Adsterra
