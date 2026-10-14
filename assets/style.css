@@ -175,49 +175,22 @@ img, iframe { max-width: 100%; }
 .btn.ghost:hover { background: var(--panel-2); box-shadow: 0 10px 30px rgba(0,0,0,.4); }
 .btn.gold { background: var(--grad-gold); color: #221600; box-shadow: 0 10px 30px rgba(247, 169, 40, .35); }
 
-/* ---------- in-flow ad frames ("movie screens") ---------- */
+/* ---------- in-flow ad slots — bare, no container, exactly where the flow puts them ---------- */
 .ad {
-  position: relative; display: flex;
-  margin: 26px 0; padding: 30px 12px 12px;
-  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
-  border: 1px solid var(--line); border-radius: var(--radius);
-  overflow-x: auto; overflow-y: hidden;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, .35);
+  display: flex;
+  margin: 18px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
-.ad::before {
-  content: "SPONSORED";
-  position: absolute; top: 9px; left: 14px;
-  font: 800 8.5px/1 var(--font-body); letter-spacing: .22em;
-  color: var(--faint); text-transform: uppercase;
-  display: inline-flex; align-items: center; gap: 6px;
-}
-.ad::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(110deg, transparent 32%, rgba(255,255,255,.055) 50%, transparent 68%);
-  transform: translateX(-100%);
-  animation: adSheen 3s ease-in-out infinite;
-}
-.ad.is-loaded::after { animation: none; opacity: 0; }
-@keyframes adSheen { 0% { transform: translateX(-100%); } 60%, 100% { transform: translateX(100%); } }
-.ad iframe { margin: 0 auto; border: 0; display: block; flex-shrink: 0; border-radius: var(--radius-sm); }
+.ad iframe { margin: 0 auto; border: 0; display: block; flex-shrink: 0; }
 
-/* AdsLab wraps share the same screen frame; the Adsterra swap lands inside
- * as a bare .ad — strip its chrome to avoid double frames */
-.adslab-wrap {
-  position: relative; margin: 26px 0; padding: 30px 12px 12px;
-  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
-  border: 1px solid var(--line); border-radius: var(--radius);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, .35);
-}
-.adslab-wrap::before {
-  content: "SPONSORED";
-  position: absolute; top: 9px; left: 14px;
-  font: 800 8.5px/1 var(--font-body); letter-spacing: .22em;
-  color: var(--faint); text-transform: uppercase;
-}
-.adslab-wrap .ad { margin: 0; padding: 0; border: 0; background: none; box-shadow: none; overflow: visible; }
-.adslab-wrap .ad::before, .adslab-wrap .ad::after { content: none; }
+.adslab-wrap { margin: 18px 0; }
+.adslab-wrap .ad { margin: 0; }
 .adslab-slot { margin: 0 auto; max-width: 100%; overflow: hidden; }
+
+/* small side-by-side pair of portrait banners, centered */
+.pair { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+.pair .ad { margin: 0; }
 
 /* ---------- hero ---------- */
 .hero {
@@ -230,12 +203,12 @@ img, iframe { max-width: 100%; }
 }
 .hero::before {
   width: 560px; height: 560px; top: -220px; right: -140px;
-  background: radial-gradient(circle, rgba(229, 9, 20, .5), transparent 65%);
+  background: radial-gradient(circle, rgba(229, 9, 20, .32), transparent 65%);
   animation: drift 16s ease-in-out infinite alternate;
 }
 .hero::after {
   width: 480px; height: 480px; bottom: -260px; left: -160px;
-  background: radial-gradient(circle, rgba(124, 58, 237, .38), transparent 65%);
+  background: radial-gradient(circle, rgba(124, 58, 237, .24), transparent 65%);
   animation: drift 20s ease-in-out infinite alternate-reverse;
 }
 @keyframes drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(-60px, 40px) scale(1.12); } }
@@ -533,8 +506,6 @@ img, iframe { max-width: 100%; }
 @media (max-width: 640px) {
   .wall { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; gap: 26px; }
-  .ad { padding: 28px 8px 8px; }
-  .adslab-wrap { padding: 28px 8px 8px; }
   .side { gap: 12px; }
 }
 @media (max-width: 560px) {

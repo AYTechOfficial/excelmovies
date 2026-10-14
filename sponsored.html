@@ -9,24 +9,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css?v=2">
-  <script src="assets/site.js?v=2" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=3">
+  <script src="assets/site.js?v=3" defer></script>
 
   <!-- POPUNDER (before </head>) -->
   <script defer src="https://pl31228415.profitableratecpmnetwork.com/97/9e/d1/979ed1216aeac15ee5063592661865e8.js"></script>
 
   <!-- AdsLab SDK config + loader (config must run before sdk.js) -->
-  <script src="assets/adslab.js?v=2"></script>
+  <script src="assets/adslab.js?v=3"></script>
   <script src="https://adslab.me/api/sdk.js" async></script>
 </head>
 <body>
 
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
-
-  <!-- ad slots — in flow -->
-  <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
-  <div class="adslab-wrap only-desktop"><script>emAdslabUnit("728x90")</script></div>
-  <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x50")</script></div>
 
   <header class="site-head" id="siteHead">
     <div class="wrap head-flex">
@@ -49,6 +44,11 @@
       </div>
     </div>
   </header>
+
+  <!-- ad slots — below the nav, in flow -->
+  <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
+  <div class="adslab-wrap only-desktop"><script>emAdslabUnit("728x90")</script></div>
+  <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x50")</script></div>
 
   <main class="wrap">
     <section class="hero">
@@ -160,6 +160,8 @@
       </div>
     </section>
 
+    <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no" title="Sponsored banner"></iframe></div>
+
     <div class="wall">
       <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
@@ -174,6 +176,8 @@
       <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="adslab-wrap"><script>emAdslabUnit("160x600")</script></div>
+      <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="center-cta"><button class="btn" data-em-rew>▶ Watch a Rewarded Ad Instead</button></div>
     </section>
   </main>

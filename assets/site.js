@@ -92,24 +92,6 @@
     revealEls.forEach(function (el) { el.classList.add("is-revealed"); });
   }
 
-  /* ---------- ad shimmer: stop the sheen once an iframe has content ---------- */
-  function armAdFrame(ad) {
-    if (ad.dataset.emArmed) return;
-    ad.dataset.emArmed = "1";
-    var frame = ad.querySelector("iframe");
-    if (!frame) return;
-    var done = function () { ad.classList.add("is-loaded"); };
-    if (frame.complete) done(); else frame.addEventListener("load", done);
-    setTimeout(done, 9000); /* never shimmer forever, even if load is silent */
-  }
-  $$(".ad").forEach(armAdFrame);
-  new MutationObserver(function (muts) {
-    muts.forEach(function (m) {
-      $$(".ad", m.target).forEach(armAdFrame);
-      if (m.target.classList && m.target.classList.contains("ad")) armAdFrame(m.target);
-    });
-  }).observe(document.body, { childList: true, subtree: true });
-
   /* ---------- search overlay ---------- */
   var overlay = $("#searchOverlay");
   var input = $("#searchInput");
