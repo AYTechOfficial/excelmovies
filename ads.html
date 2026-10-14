@@ -3,34 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>All Ads — Every Format | ExcelMovies</title>
-  <meta name="description" content="The complete ExcelMovies ad catalog: 728x90, 468x60, 320x50, 300x250, 160x600, 160x300 — all the banners, only the banners.">
+  <title>All Ads — The Full Catalog | ExcelMovies</title>
+  <meta name="description" content="The complete ExcelMovies catalog: leaderboards, full banners, mobile banners, medium rectangles and skyscrapers — every format, framed like it's the main feature.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><text x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>X</text></svg>">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=2">
+  <script src="assets/site.js?v=2" defer></script>
 
   <!-- POPUNDER (before </head>) -->
   <script defer src="https://pl31228415.profitableratecpmnetwork.com/97/9e/d1/979ed1216aeac15ee5063592661865e8.js"></script>
 
   <!-- AdsLab SDK config + loader (config must run before sdk.js) -->
-  <script src="assets/adslab.js"></script>
+  <script src="assets/adslab.js?v=2"></script>
   <script src="https://adslab.me/api/sdk.js" async></script>
 </head>
 <body>
 
-  <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
-  <header class="site-head">
+  <!-- ad slot 1 -->
+  <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
+
+  <header class="site-head" id="siteHead">
     <div class="wrap head-flex">
-      <a class="logo" href="/">Excel<span>Movies</span></a>
-      <span class="tagline">Ads &middot; Ads &middot; Only Ads</span>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
-        <a href="tasks.html">Tasks</a>
-        <a href="go.html">Premium</a>
-        <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">Watch Now</a>
+      <a class="logo" href="/">Excel<span>Movies</span><small class="logo-sub">Premium Ads</small></a>
+      <nav class="nav" id="navMenu" aria-label="Main navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="ads.html" data-nav="ads">All Ads</a>
+        <a href="sponsored.html" data-nav="sponsored">Sponsored</a>
+        <a href="tasks.html" data-nav="tasks">Tasks</a>
+        <a href="go.html" data-nav="go">Premium</a>
+        <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Watch Now</a>
       </nav>
+      <div class="head-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Search sponsors (press /)" title="Search sponsors ( / )">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -38,105 +52,142 @@
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <h1>The Full <em>Ad Catalog</em></h1>
-          <p>
-            Every format we run, back to back: 728x90, 468x60, 320x50, 300x250, 160x600,
-            160x300 — banner ads only. That&rsquo;s the whole site. Ads.
+          <div class="hero-chips" data-reveal>
+            <span><i></i>6 banner sizes</span>
+            <span><i></i>24+ live placements</span>
+            <span><i></i>Zero pop-ups in frame</span>
+          </div>
+          <h1 data-reveal>The Full <em>Ad Catalog</em></h1>
+          <p data-reveal>
+            Every banner format we premiere — leaderboards, full banners, mobile banners,
+            medium rectangles, wide skyscrapers and half-pages. In place, in frame, always.
           </p>
-          <a class="btn" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Continue to Sponsor</a>
-          <a class="btn ghost" href="sponsored.html">See Sponsored Wall</a>
+          <div class="hero-cta" data-reveal>
+            <a class="btn" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Continue to Sponsor</a>
+            <a class="btn ghost" href="sponsored.html">See Sponsored Wall</a>
+          </div>
         </div>
-        <div class="hero-ad">
-          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
+        <div class="hero-ad" data-reveal>
+          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
           <div class="adslab-wrap"><script>emAdslabUnit("300x250")</script></div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">728x90 — Leaderboard</h2>
-      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
+    <section class="section" data-reveal>
+      <h2 class="section-title">728x90 — The Leaderboard</h2>
+      <p class="section-sub">The classic premiere slot. Desktop only — it deserves the full width.</p>
+      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="adslab-wrap only-desktop"><script>emAdslabUnit("728x90")</script></div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <h2 class="section-title">468x60 — Full Banner</h2>
-      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
+      <p class="section-sub">The mid-size headliner, desktop only.</p>
+      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="adslab-wrap only-desktop"><script>emAdslabUnit("468x60")</script></div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">320x50 — Mobile Banner</h2>
-      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
+    <section class="section" data-reveal>
+      <h2 class="section-title">320x50 &amp; 320x100 — Mobile Feature</h2>
+      <p class="section-sub">Built for the small screen. Mobile only.</p>
+      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x50")</script></div>
       <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x100")</script></div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <h2 class="section-title">300x250 — Medium Rectangle</h2>
+      <p class="section-sub">The star of the catalog — six placements and counting.</p>
       <div class="wall">
-        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
+        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
       </div>
       <div class="wall">
-        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
+        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
       </div>
       <div class="adslab-wrap"><script>emAdslabUnit("336x280")</script></div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <h2 class="section-title">160x600 — Wide Skyscraper</h2>
+      <p class="section-sub">Towering over everything, exactly where it belongs.</p>
       <div class="wall">
-        <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no"></iframe></div>
+        <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no" title="Sponsored banner"></iframe></div>
       </div>
       <div class="adslab-wrap"><script>emAdslabUnit("160x600")</script></div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <h2 class="section-title">160x300 — Half Page</h2>
+      <p class="section-sub">The short feature — three in a row.</p>
       <div class="wall">
-        <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no"></iframe></div>
+        <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no" title="Sponsored banner"></iframe></div>
       </div>
       <div class="adslab-wrap"><script>emAdslabUnit("300x600")</script></div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <h2 class="section-title">Rewarded &amp; More Banners</h2>
-      <p class="section-sub">
-        Watch a rewarded ad, and the banner wall keeps rolling below.
-      </p>
-      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
-      <p><button class="btn" data-em-rew>▶ Watch a Rewarded Ad</button></p>
+      <p class="section-sub">Watch a rewarded feature, and the banner wall keeps rolling below.</p>
+      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="center-cta"><button class="btn" data-em-rew>▶ Watch a Rewarded Ad</button></div>
     </section>
   </main>
 
   <footer class="site-foot">
-    <div class="wrap">
-      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-      <div class="foot-nav">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="/">Excel<span>Movies</span></a>
+        <p>A premium sponsored experience. Every placement on this site is a paid advertisement — curated, framed and proud of it.</p>
+        <div class="foot-chips"><span>AdsLab</span><span>Adsterra</span><span>Smartlink</span></div>
+      </div>
+      <nav class="foot-col" aria-label="Explore">
+        <h4>Explore</h4>
         <a href="/">Home</a>
         <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
+        <a href="sponsored.html">Sponsored Wall</a>
         <a href="tasks.html">Tasks</a>
         <a href="go.html">Premium</a>
-      </div>
-      <p class="foot-note">ExcelMovies is a demonstration ads-only site. Every element you see is a sponsored ad placement.</p>
+      </nav>
+      <nav class="foot-col" aria-label="Formats">
+        <h4>Formats</h4>
+        <a href="ads.html">Leaderboards</a>
+        <a href="ads.html">Skyscrapers</a>
+        <a href="ads.html">Medium Rectangles</a>
+        <a href="tasks.html">Rewarded Ads</a>
+      </nav>
+    </div>
+    <div class="wrap foot-base">
+      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
+      <p class="foot-note">ExcelMovies is a demonstration ads-only experience. Every element you see is a sponsored ad placement.</p>
       <p class="copy">&copy; 2026 ExcelMovies — excelmovies.vercel.app</p>
     </div>
   </footer>
 
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
+
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search sponsors" hidden>
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="Search sponsors, offers, formats…" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+      <div class="search-hint"><span><b>↑↓</b> navigate</span><span><b>↵</b> open</span><span><b>esc</b> close</span></div>
+    </div>
+  </div>
 
 </body>
 </html>

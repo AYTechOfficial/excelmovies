@@ -3,164 +3,216 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ExcelMovies — Ads, Only Ads</title>
-  <meta name="description" content="ExcelMovies: every ad, all the ads. Sponsored placements everywhere you look.">
+  <title>ExcelMovies — Where Every Ad Is the Show</title>
+  <meta name="description" content="ExcelMovies: a premium sponsored entertainment experience. Banners, skyscrapers, rewarded ads — every pixel is the content.">
   <meta name="website-verification" content="6acf0cb696e64573f5d3e419">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><text x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>X</text></svg>">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=2">
+  <script src="assets/site.js?v=2" defer></script>
 
   <!-- POPUNDER (before </head>) -->
   <script defer src="https://pl31228415.profitableratecpmnetwork.com/97/9e/d1/979ed1216aeac15ee5063592661865e8.js"></script>
 
   <!-- AdsLab SDK config + loader (config must run before sdk.js) -->
-  <script src="assets/adslab.js"></script>
+  <script src="assets/adslab.js?v=2"></script>
   <script src="https://adslab.me/api/sdk.js" async></script>
 </head>
 <body>
 
-  <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ad slot 1 — in flow -->
+  <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
   <div class="adslab-wrap only-desktop"><script>emAdslabUnit("728x90")</script></div>
 
-  <header class="site-head">
+  <header class="site-head" id="siteHead">
     <div class="wrap head-flex">
-      <a class="logo" href="/">Excel<span>Movies</span></a>
-      <span class="tagline">Ads &middot; Ads &middot; Only Ads</span>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
-        <a href="tasks.html">Tasks</a>
-        <a href="go.html">Premium</a>
-        <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">Watch Now</a>
+      <a class="logo" href="/">Excel<span>Movies</span><small class="logo-sub">Premium Ads</small></a>
+      <nav class="nav" id="navMenu" aria-label="Main navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="ads.html" data-nav="ads">All Ads</a>
+        <a href="sponsored.html" data-nav="sponsored">Sponsored</a>
+        <a href="tasks.html" data-nav="tasks">Tasks</a>
+        <a href="go.html" data-nav="go">Premium</a>
+        <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Watch Now</a>
       </nav>
+      <div class="head-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Search sponsors (press /)" title="Search sponsors ( / )">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
+  <!-- ad slot 2 — in flow -->
+  <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
   <div class="adslab-wrap only-desktop"><script>emAdslabUnit("468x60")</script></div>
 
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Ads. <em>Only Ads.</em><br>Everywhere You Look.</h1>
-        <p>
-          Welcome to ExcelMovies — the home of <strong>every ad format in one place</strong>:
-          banner ads everywhere you look — leaderboards, skyscrapers, rectangles and
-          rewarded ads. Every click, every pixel, pure sponsored content. Scroll — the
-          ads go all the way down.
+        <div class="hero-chips" data-reveal>
+          <span><i></i>8 premium formats</span>
+          <span><i></i>2 ad networks</span>
+          <span><i></i>Streaming 24/7</span>
+        </div>
+        <h1 data-reveal>The Ads <em>Are</em> the Show.<br>Everything On Screen.</h1>
+        <p data-reveal>
+          Welcome to ExcelMovies — a <strong>premium sponsored experience</strong> where the
+          content is the advertising. Leaderboards, skyscrapers, medium rectangles and
+          rewarded features — curated like a streaming lineup, delivered like a blockbuster.
         </p>
-        <a class="btn" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Continue to Sponsor</a>
-        <a class="btn ghost" href="ads.html">Browse All Ads</a>
+        <div class="hero-cta" data-reveal>
+          <a class="btn" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Continue to Sponsor</a>
+          <a class="btn ghost" href="ads.html">Browse All Ads</a>
+        </div>
       </div>
-      <div class="hero-ad">
-        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
+      <div class="hero-ad" data-reveal>
+        <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
         <div class="adslab-wrap"><script>emAdslabUnit("300x250")</script></div>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Mega Deal Today</span><span>Stream Faster</span><span>Win Big Today</span><span>Top Rated VPN</span><span>Crypto Bonus</span><span>Dating Near You</span><span>Game Pass Pro</span><span>Flash Sale</span>
+        <span>Mega Deal Today</span><span>Stream Faster</span><span>Win Big Today</span><span>Top Rated VPN</span><span>Crypto Bonus</span><span>Dating Near You</span><span>Game Pass Pro</span><span>Flash Sale</span>
       </div>
     </div>
   </section>
 
-  <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
-  <p style="text-align:center"><button class="btn" data-em-rew>▶ More Ads? Watch a Rewarded One</button></p>
+  <!-- ad slot 3 — in flow -->
+  <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
+  <div class="center-cta"><button class="btn" data-em-rew>▶ More Ads? Watch a Rewarded One</button></div>
 
   <main class="wrap cols">
     <aside class="side">
-      <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no"></iframe></div>
+      <div class="ad"><iframe src="ads/160x600.html" width="160" height="600" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/160x300.html" width="160" height="300" scrolling="no" title="Sponsored banner"></iframe></div>
       <div class="adslab-wrap"><script>emAdslabUnit("160x600")</script></div>
     </aside>
 
     <div>
-      <section class="section">
-        <h2 class="section-title">Today&rsquo;s Sponsors</h2>
-        <p class="section-sub">Every tile below is a sponsored placement — all of them. Click any.</p>
+      <section class="section" data-reveal>
+        <h2 class="section-title">Tonight&rsquo;s Sponsors</h2>
+        <p class="section-sub">A curated lineup of featured placements — every poster is a live offer. Click any.</p>
         <div class="grid">
-          <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Sponsored</span>
-            <div class="t-body"><strong>Mega Deal Today</strong><em>Up to 90% off — limited time</em><span class="cta">View Offer</span></div>
+            <div class="t-body"><strong>Mega Deal Today</strong><em>Up to 90% off — limited time</em><span class="cta">View Offer →</span></div>
           </a>
-          <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Ad</span>
-            <div class="t-body"><strong>Stream Faster</strong><em>The #1 rated player of 2026</em><span class="cta">Try Free</span></div>
+            <div class="t-body"><strong>Stream Faster</strong><em>The #1 rated player of 2026</em><span class="cta">Try Free →</span></div>
           </a>
-          <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Sponsored</span>
-            <div class="t-body"><strong>Win Big Today</strong><em>Spin &amp; claim your bonus now</em><span class="cta">Play Now</span></div>
+            <div class="t-body"><strong>Win Big Today</strong><em>Spin &amp; claim your bonus now</em><span class="cta">Play Now →</span></div>
           </a>
-          <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Ad</span>
-            <div class="t-body"><strong>Top Rated VPN</strong><em>Browse fast, private &amp; safe</em><span class="cta">Get VPN</span></div>
+            <div class="t-body"><strong>Top Rated VPN</strong><em>Browse fast, private &amp; safe</em><span class="cta">Get VPN →</span></div>
           </a>
-          <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Sponsored</span>
-            <div class="t-body"><strong>Crypto Bonus</strong><em>Sign up &amp; double your deposit</em><span class="cta">Claim Now</span></div>
+            <div class="t-body"><strong>Crypto Bonus</strong><em>Sign up &amp; double your deposit</em><span class="cta">Claim Now →</span></div>
           </a>
-          <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Ad</span>
-            <div class="t-body"><strong>Dating Near You</strong><em>See who&rsquo;s online tonight</em><span class="cta">Meet Now</span></div>
+            <div class="t-body"><strong>Dating Near You</strong><em>See who&rsquo;s online tonight</em><span class="cta">Meet Now →</span></div>
           </a>
-          <a class="tile g7" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g7" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Sponsored</span>
-            <div class="t-body"><strong>Game Pass Pro</strong><em>Unlock 1000+ titles today</em><span class="cta">Start Free</span></div>
+            <div class="t-body"><strong>Game Pass Pro</strong><em>Unlock 1000+ titles today</em><span class="cta">Start Free →</span></div>
           </a>
-          <a class="tile g8" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+          <a class="tile g8" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
             <span class="badge">Ad</span>
-            <div class="t-body"><strong>Flash Sale</strong><em>Gadgets from $9.99 today</em><span class="cta">Shop Now</span></div>
+            <div class="t-body"><strong>Flash Sale</strong><em>Gadgets from $9.99 today</em><span class="cta">Shop Now →</span></div>
           </a>
         </div>
       </section>
 
-      <section class="section">
-        <h2 class="section-title">More Sponsored Content</h2>
-        <p class="section-sub">Banners, served fresh from our sponsors.</p>
+      <section class="section" data-reveal>
+        <h2 class="section-title">Sponsored Originals</h2>
+        <p class="section-sub">Premiering right here: fresh banner creatives from our partners, in place and in frame.</p>
         <div class="adslab-wrap"><script>emAdslabUnit("336x280")</script></div>
         <div class="wall">
-          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
+          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
         </div>
         <div class="adslab-wrap"><script>emAdslabUnit("300x600")</script></div>
         <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x100")</script></div>
       </section>
 
-      <section class="section">
-        <h2 class="section-title">Between these lines? More ads.</h2>
-        <p class="section-sub">
-          Everything on ExcelMovies is a paid placement. Our full catalog of formats lives on the
-          <a href="ads.html">All Ads</a> page, and every clickable word on the
-          <a href="sponsored.html">Sponsored</a> page opens an offer.
-        </p>
-        <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
-        <p style="margin-top:22px"><button class="btn" data-em-rew>▶ Watch a Rewarded Ad</button></p>
+      <section class="section" data-reveal>
+        <h2 class="section-title">More While You Scroll</h2>
+        <p class="section-sub">The full catalog lives on the <a href="ads.html">All Ads</a> page — and every word on the <a href="sponsored.html">Sponsored</a> wall opens an offer.</p>
+        <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="center-cta"><button class="btn" data-em-rew>▶ Watch a Rewarded Ad</button></div>
       </section>
 
-      <section class="section">
-        <h2 class="section-title">Almost at the end — ads first</h2>
-        <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
-        <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
+      <section class="section" data-reveal>
+        <h2 class="section-title">The Final Cut</h2>
+        <p class="section-sub">Almost at the end — sponsors first, as always.</p>
+        <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
+        <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
         <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x50")</script></div>
       </section>
     </div>
   </main>
 
-  <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-  <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
+  <!-- ad slot — post-main, in flow -->
+  <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+  <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
 
   <footer class="site-foot">
-    <div class="wrap">
-      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-      <div class="foot-nav">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="/">Excel<span>Movies</span></a>
+        <p>A premium sponsored experience. Every placement on this site is a paid advertisement — curated, framed and proud of it.</p>
+        <div class="foot-chips"><span>AdsLab</span><span>Adsterra</span><span>Smartlink</span></div>
+      </div>
+      <nav class="foot-col" aria-label="Explore">
+        <h4>Explore</h4>
         <a href="/">Home</a>
         <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
+        <a href="sponsored.html">Sponsored Wall</a>
         <a href="tasks.html">Tasks</a>
         <a href="go.html">Premium</a>
-      </div>
-      <p class="foot-note">ExcelMovies is a demonstration ads-only site. Every element you see is a sponsored ad placement.</p>
+      </nav>
+      <nav class="foot-col" aria-label="Formats">
+        <h4>Formats</h4>
+        <a href="ads.html">Leaderboards</a>
+        <a href="ads.html">Skyscrapers</a>
+        <a href="ads.html">Medium Rectangles</a>
+        <a href="tasks.html">Rewarded Ads</a>
+      </nav>
+    </div>
+    <div class="wrap foot-base">
+      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
+      <p class="foot-note">ExcelMovies is a demonstration ads-only experience. Every element you see is a sponsored ad placement.</p>
       <p class="copy">&copy; 2026 ExcelMovies — excelmovies.vercel.app</p>
     </div>
   </footer>
 
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
+
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search sponsors" hidden>
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="Search sponsors, offers, formats…" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+      <div class="search-hint"><span><b>↑↓</b> navigate</span><span><b>↵</b> open</span><span><b>esc</b> close</span></div>
+    </div>
+  </div>
 
 </body>
 </html>

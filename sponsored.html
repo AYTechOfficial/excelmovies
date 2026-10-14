@@ -3,35 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sponsored — Click Wall | ExcelMovies</title>
-  <meta name="description" content="A wall of sponsored placements. Every tile on this page is an ad — click anywhere.">
+  <title>Sponsored — The Click Wall | ExcelMovies</title>
+  <meta name="description" content="A wall of premium sponsored placements. Every poster on this page is a live ad — click anywhere.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><text x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>X</text></svg>">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=2">
+  <script src="assets/site.js?v=2" defer></script>
 
   <!-- POPUNDER (before </head>) -->
   <script defer src="https://pl31228415.profitableratecpmnetwork.com/97/9e/d1/979ed1216aeac15ee5063592661865e8.js"></script>
 
   <!-- AdsLab SDK config + loader (config must run before sdk.js) -->
-  <script src="assets/adslab.js"></script>
+  <script src="assets/adslab.js?v=2"></script>
   <script src="https://adslab.me/api/sdk.js" async></script>
 </head>
 <body>
 
-  <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-  <div class="adslab-wrap only-desktop"><script>emAdslabUnit("728x90")</script></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
-  <header class="site-head">
+  <!-- ad slots — in flow -->
+  <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
+  <div class="adslab-wrap only-desktop"><script>emAdslabUnit("728x90")</script></div>
+  <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x50")</script></div>
+
+  <header class="site-head" id="siteHead">
     <div class="wrap head-flex">
-      <a class="logo" href="/">Excel<span>Movies</span></a>
-      <span class="tagline">Ads &middot; Ads &middot; Only Ads</span>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
-        <a href="tasks.html">Tasks</a>
-        <a href="go.html">Premium</a>
-        <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">Watch Now</a>
+      <a class="logo" href="/">Excel<span>Movies</span><small class="logo-sub">Premium Ads</small></a>
+      <nav class="nav" id="navMenu" aria-label="Main navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="ads.html" data-nav="ads">All Ads</a>
+        <a href="sponsored.html" data-nav="sponsored">Sponsored</a>
+        <a href="tasks.html" data-nav="tasks">Tasks</a>
+        <a href="go.html" data-nav="go">Premium</a>
+        <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Watch Now</a>
       </nav>
+      <div class="head-actions">
+        <button class="icon-btn" id="searchBtn" aria-label="Search sponsors (press /)" title="Search sponsors ( / )">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </button>
+        <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -39,132 +54,171 @@
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <h1>Don&rsquo;t scroll. <em>Click.</em></h1>
-          <p>
-            Every single tile on this page is a paid sponsor placement. There is no
-            &ldquo;real content&rdquo; hiding behind them — the ads <em>are</em> the content.
+          <div class="hero-chips" data-reveal>
+            <span><i></i>16 live offers</span>
+            <span><i></i>One tap each</span>
+            <span><i></i>New drops daily</span>
+          </div>
+          <h1 data-reveal>Don&rsquo;t Scroll. <em>Click.</em></h1>
+          <p data-reveal>
+            Every poster on this wall is a paid sponsor placement — there is no
+            &ldquo;real content&rdquo; behind them. On ExcelMovies, the ads <em>are</em> the feature.
           </p>
-          <a class="btn" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Continue to Sponsor</a>
-          <a class="btn ghost" href="ads.html">Browse All Ads</a>
+          <div class="hero-cta" data-reveal>
+            <a class="btn" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Continue to Sponsor</a>
+            <a class="btn ghost" href="ads.html">Browse All Ads</a>
+          </div>
         </div>
-        <div class="hero-ad">
-          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
+        <div class="hero-ad" data-reveal>
+          <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
           <div class="adslab-wrap"><script>emAdslabUnit("300x250")</script></div>
         </div>
       </div>
     </section>
 
-    <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
+    <!-- ad slot — in flow -->
+    <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
+    <div class="adslab-wrap only-desktop"><script>emAdslabUnit("468x60")</script></div>
 
-    <section class="section">
-      <h2 class="section-title">The Click Wall — Row 1</h2>
+    <section class="section" data-reveal>
+      <h2 class="section-title">The Click Wall — Act I</h2>
+      <p class="section-sub">Eight headliners, one tap each.</p>
       <div class="grid">
-        <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Mega Deal Today</strong><em>Up to 90% off — limited time</em><span class="cta">View Offer</span></div>
+          <div class="t-body"><strong>Mega Deal Today</strong><em>Up to 90% off — limited time</em><span class="cta">View Offer →</span></div>
         </a>
-        <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Stream Faster</strong><em>The #1 rated player of 2026</em><span class="cta">Try Free</span></div>
+          <div class="t-body"><strong>Stream Faster</strong><em>The #1 rated player of 2026</em><span class="cta">Try Free →</span></div>
         </a>
-        <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Win Big Today</strong><em>Spin &amp; claim your bonus now</em><span class="cta">Play Now</span></div>
+          <div class="t-body"><strong>Win Big Today</strong><em>Spin &amp; claim your bonus now</em><span class="cta">Play Now →</span></div>
         </a>
-        <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Top Rated VPN</strong><em>Browse fast, private &amp; safe</em><span class="cta">Get VPN</span></div>
+          <div class="t-body"><strong>Top Rated VPN</strong><em>Browse fast, private &amp; safe</em><span class="cta">Get VPN →</span></div>
         </a>
-        <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Crypto Bonus</strong><em>Sign up &amp; double your deposit</em><span class="cta">Claim Now</span></div>
+          <div class="t-body"><strong>Crypto Bonus</strong><em>Sign up &amp; double your deposit</em><span class="cta">Claim Now →</span></div>
         </a>
-        <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Dating Near You</strong><em>See who&rsquo;s online tonight</em><span class="cta">Meet Now</span></div>
+          <div class="t-body"><strong>Dating Near You</strong><em>See who&rsquo;s online tonight</em><span class="cta">Meet Now →</span></div>
         </a>
-        <a class="tile g7" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g7" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Game Pass Pro</strong><em>Unlock 1000+ titles today</em><span class="cta">Start Free</span></div>
+          <div class="t-body"><strong>Game Pass Pro</strong><em>Unlock 1000+ titles today</em><span class="cta">Start Free →</span></div>
         </a>
-        <a class="tile g8" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g8" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Flash Sale</strong><em>Gadgets from $9.99 today</em><span class="cta">Shop Now</span></div>
+          <div class="t-body"><strong>Flash Sale</strong><em>Gadgets from $9.99 today</em><span class="cta">Shop Now →</span></div>
         </a>
       </div>
     </section>
 
     <div class="adslab-wrap"><script>emAdslabUnit("336x280")</script></div>
 
-    <section class="section">
-      <h2 class="section-title">The Click Wall — Row 2</h2>
+    <section class="section" data-reveal>
+      <h2 class="section-title">The Click Wall — Act II</h2>
+      <p class="section-sub">The second feature presentation.</p>
       <div class="grid">
-        <a class="tile g8" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g8" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Lucky Spin</strong><em>One tap to your reward</em><span class="cta">Tap Now</span></div>
+          <div class="t-body"><strong>Lucky Spin</strong><em>One tap to your reward</em><span class="cta">Tap Now →</span></div>
         </a>
-        <a class="tile g7" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g7" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Clean My Device</strong><em>#1 cleaner of 2026 — free scan</em><span class="cta">Scan Free</span></div>
+          <div class="t-body"><strong>Clean My Device</strong><em>#1 cleaner of 2026 — free scan</em><span class="cta">Scan Free →</span></div>
         </a>
-        <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Loan in Minutes</strong><em>Fast approval, low rates</em><span class="cta">Apply</span></div>
+          <div class="t-body"><strong>Loan in Minutes</strong><em>Fast approval, low rates</em><span class="cta">Apply →</span></div>
         </a>
-        <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Weight Loss Trick</strong><em>Doctors stunned — see why</em><span class="cta">Read Now</span></div>
+          <div class="t-body"><strong>Weight Loss Trick</strong><em>Doctors stunned — see why</em><span class="cta">Read Now →</span></div>
         </a>
-        <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Jackpot Hour</strong><em>Winners paid every hour</em><span class="cta">Enter</span></div>
+          <div class="t-body"><strong>Jackpot Hour</strong><em>Winners paid every hour</em><span class="cta">Enter →</span></div>
         </a>
-        <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Install Now</strong><em>The app everyone is talking about</em><span class="cta">Install</span></div>
+          <div class="t-body"><strong>Install Now</strong><em>The app everyone is talking about</em><span class="cta">Install →</span></div>
         </a>
-        <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Sponsored</span>
-          <div class="t-body"><strong>Watch HD Live</strong><em>Streams, shows &amp; more</em><span class="cta">Stream</span></div>
+          <div class="t-body"><strong>Watch HD Live</strong><em>Streams, shows &amp; more</em><span class="cta">Stream →</span></div>
         </a>
-        <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Ad</span>
-          <div class="t-body"><strong>Your Prize Awaits</strong><em>Claim before it expires</em><span class="cta">Claim</span></div>
+          <div class="t-body"><strong>Your Prize Awaits</strong><em>Claim before it expires</em><span class="cta">Claim →</span></div>
         </a>
       </div>
     </section>
 
     <div class="wall">
-      <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no"></iframe></div>
+      <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/300x250.html" width="300" height="250" scrolling="no" title="Sponsored banner"></iframe></div>
     </div>
-      <div class="adslab-wrap"><script>emAdslabUnit("300x600")</script></div>
-      <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x100")</script></div>
+    <div class="adslab-wrap"><script>emAdslabUnit("300x600")</script></div>
+    <div class="adslab-wrap only-mobile"><script>emAdslabUnit("320x100")</script></div>
 
-    <section class="section">
-      <h2 class="section-title">Still scrolling? More ads.</h2>
-      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no"></iframe></div>
-      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no"></iframe></div>
-      <p><button class="btn" data-em-rew>▶ Watch a Rewarded Ad Instead</button></p>
+    <section class="section" data-reveal>
+      <h2 class="section-title">Still Scrolling? More Ads.</h2>
+      <p class="section-sub">The credits haven&rsquo;t rolled yet.</p>
+      <div class="ad"><iframe src="ads/468x60.html" width="468" height="60" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="ad"><iframe src="ads/728x90.html" width="728" height="90" scrolling="no" title="Sponsored banner"></iframe></div>
+      <div class="adslab-wrap"><script>emAdslabUnit("160x600")</script></div>
+      <div class="center-cta"><button class="btn" data-em-rew>▶ Watch a Rewarded Ad Instead</button></div>
     </section>
   </main>
 
   <footer class="site-foot">
-    <div class="wrap">
-      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no"></iframe></div>
-      <div class="foot-nav">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="/">Excel<span>Movies</span></a>
+        <p>A premium sponsored experience. Every placement on this site is a paid advertisement — curated, framed and proud of it.</p>
+        <div class="foot-chips"><span>AdsLab</span><span>Adsterra</span><span>Smartlink</span></div>
+      </div>
+      <nav class="foot-col" aria-label="Explore">
+        <h4>Explore</h4>
         <a href="/">Home</a>
         <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
+        <a href="sponsored.html">Sponsored Wall</a>
         <a href="tasks.html">Tasks</a>
         <a href="go.html">Premium</a>
-      </div>
-      <p class="foot-note">ExcelMovies is a demonstration ads-only site. Every element you see is a sponsored ad placement.</p>
+      </nav>
+      <nav class="foot-col" aria-label="Formats">
+        <h4>Formats</h4>
+        <a href="ads.html">Leaderboards</a>
+        <a href="ads.html">Skyscrapers</a>
+        <a href="ads.html">Medium Rectangles</a>
+        <a href="tasks.html">Rewarded Ads</a>
+      </nav>
+    </div>
+    <div class="wrap foot-base">
+      <div class="ad"><iframe src="ads/320x50.html" width="320" height="50" scrolling="no" title="Sponsored banner"></iframe></div>
+      <p class="foot-note">ExcelMovies is a demonstration ads-only experience. Every element you see is a sponsored ad placement.</p>
       <p class="copy">&copy; 2026 ExcelMovies — excelmovies.vercel.app</p>
     </div>
   </footer>
 
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
+
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search sponsors" hidden>
+    <div class="search-box">
+      <input id="searchInput" type="text" placeholder="Search sponsors, offers, formats…" autocomplete="off">
+      <div class="search-results" id="searchResults"></div>
+      <div class="search-hint"><span><b>↑↓</b> navigate</span><span><b>↵</b> open</span><span><b>esc</b> close</span></div>
+    </div>
+  </div>
 
 </body>
 </html>

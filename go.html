@@ -3,11 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Go — Continue | ExcelMovies</title>
-  <meta name="description" content="Continue to your sponsored destination.">
+  <title>Premium — Continue | ExcelMovies</title>
+  <meta name="description" content="Continue to your featured sponsor.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><text x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>X</text></svg>">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css?v=2">
+  <script src="assets/site.js?v=2" defer></script>
 
   <!-- POPUNDER ONLY (before </head>) — the highest-CPM Adsterra format.
        No social bar, no banners, no native: this page runs popunder + smartlink only. -->
@@ -15,90 +19,128 @@
 </head>
 <body>
 
-  <header class="site-head">
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="site-head" id="siteHead">
     <div class="wrap head-flex">
-      <a class="logo" href="/">Excel<span>Movies</span></a>
-      <span class="tagline">Ads &middot; Ads &middot; Only Ads</span>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
-        <a href="tasks.html">Tasks</a>
+      <a class="logo" href="/">Excel<span>Movies</span><small class="logo-sub">Premium Ads</small></a>
+      <nav class="nav" id="navMenu" aria-label="Main navigation">
+        <a href="/" data-nav="home">Home</a>
+        <a href="ads.html" data-nav="ads">All Ads</a>
+        <a href="sponsored.html" data-nav="sponsored">Sponsored</a>
+        <a href="tasks.html" data-nav="tasks">Tasks</a>
+        <a href="go.html" data-nav="go">Premium</a>
+        <a class="nav-cta" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Watch Now</a>
       </nav>
+      <div class="head-actions">
+        <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
-      <div style="max-width:720px;margin:0 auto;text-align:center">
-        <h1>You&rsquo;re <em>one click away</em></h1>
-        <p>
-          Your destination is ready. Tap the button below to continue to today&rsquo;s
-          featured sponsor.
-        </p>
-        <p style="margin-top:26px">
-          <a class="btn" style="font-size:22px;padding:20px 46px" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ CONTINUE</a>
-        </p>
-        <p style="margin-top:14px"><a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">skip intro &amp; go straight there →</a></p>
+      <div class="hero-grid" style="text-align:center;justify-items:center">
+        <div>
+          <div class="hero-chips" style="justify-content:center" data-reveal>
+            <span><i></i>Featured sponsor</span>
+            <span><i></i>Today only</span>
+            <span><i></i>Instant access</span>
+          </div>
+          <h1 data-reveal>You&rsquo;re <em>One Click</em> From the Show</h1>
+          <p data-reveal style="margin-inline:auto">
+            Your destination is ready. Tap the button below to continue to
+            today&rsquo;s featured sponsor — the moment you do, the show begins.
+          </p>
+          <div class="hero-cta" style="justify-content:center" data-reveal>
+            <a class="btn" style="font-size:19px;padding:20px 44px" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ CONTINUE</a>
+          </div>
+          <p data-reveal style="margin-top:16px">
+            <a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" style="color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(247,201,72,.4)">skip intro &amp; go straight there →</a>
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" data-reveal>
       <h2 class="section-title">Pick Your Lane</h2>
-      <p class="section-sub">Every lane leads to today&rsquo;s sponsor — choose any.</p>
+      <p class="section-sub">Every lane leads to today&rsquo;s featured sponsor — choose any door, same show.</p>
       <div class="grid">
-        <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g1" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Fast</span>
-          <div class="t-body"><strong>Featured</strong><em>Today&rsquo;s top sponsor</em><span class="cta">Go</span></div>
+          <div class="t-body"><strong>Featured</strong><em>Today&rsquo;s top sponsor</em><span class="cta">Go →</span></div>
         </a>
-        <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g2" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">HD</span>
-          <div class="t-body"><strong>Premium</strong><em>HD destination</em><span class="cta">Go</span></div>
+          <div class="t-body"><strong>Premium</strong><em>HD destination</em><span class="cta">Go →</span></div>
         </a>
-        <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g3" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">New</span>
-          <div class="t-body"><strong>Just Added</strong><em>Fresh today</em><span class="cta">Go</span></div>
+          <div class="t-body"><strong>Just Added</strong><em>Fresh today</em><span class="cta">Go →</span></div>
         </a>
-        <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g4" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Free</span>
-          <div class="t-body"><strong>No Cost</strong><em>100% free entry</em><span class="cta">Go</span></div>
+          <div class="t-body"><strong>No Cost</strong><em>100% free entry</em><span class="cta">Go →</span></div>
         </a>
-        <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g5" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">Hot</span>
-          <div class="t-body"><strong>Trending</strong><em>Most visited lane</em><span class="cta">Go</span></div>
+          <div class="t-body"><strong>Trending</strong><em>Most visited lane</em><span class="cta">Go →</span></div>
         </a>
-        <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">
+        <a class="tile g6" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" data-reveal>
           <span class="badge">24/7</span>
-          <div class="t-body"><strong>Always On</strong><em>Open round the clock</em><span class="cta">Go</span></div>
+          <div class="t-body"><strong>Always On</strong><em>Open round the clock</em><span class="cta">Go →</span></div>
         </a>
       </div>
     </section>
 
-    <section class="section" style="text-align:center">
-      <p style="color:var(--muted)">Still deciding? The sponsor is waiting:</p>
-      <p style="margin-top:14px">
+    <section class="section" style="text-align:center" data-reveal>
+      <h2 class="section-title" style="justify-content:center">Still Deciding?</h2>
+      <p class="section-sub" style="margin-inline:auto">The sponsor is waiting — the door is open.</p>
+      <div class="center-cta">
         <a class="btn" href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">▶ Continue to Sponsor</a>
-      </p>
-      <p style="margin-top:26px">
-        <a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">enter here</a> &middot;
-        <a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">or here</a> &middot;
-        <a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener">maybe here</a>
+      </div>
+      <p style="margin-top:18px">
+        <a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" style="color:var(--muted);text-decoration:none;margin:0 10px">enter here</a> &middot;
+        <a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" style="color:var(--muted);text-decoration:none;margin:0 10px">or here</a> &middot;
+        <a href="https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6" rel="nofollow noopener" style="color:var(--muted);text-decoration:none;margin:0 10px">maybe here</a>
       </p>
     </section>
   </main>
 
   <footer class="site-foot">
-    <div class="wrap">
-      <div class="foot-nav">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="/">Excel<span>Movies</span></a>
+        <p>A premium sponsored experience. Every placement on this site is a paid advertisement — curated, framed and proud of it.</p>
+        <div class="foot-chips"><span>AdsLab</span><span>Adsterra</span><span>Smartlink</span></div>
+      </div>
+      <nav class="foot-col" aria-label="Explore">
+        <h4>Explore</h4>
         <a href="/">Home</a>
         <a href="ads.html">All Ads</a>
-        <a href="sponsored.html">Sponsored</a>
+        <a href="sponsored.html">Sponsored Wall</a>
         <a href="tasks.html">Tasks</a>
-      </div>
-      <p class="foot-note">ExcelMovies is a demonstration ads-only site. Every element you see is a sponsored ad placement.</p>
+        <a href="go.html">Premium</a>
+      </nav>
+      <nav class="foot-col" aria-label="Formats">
+        <h4>Formats</h4>
+        <a href="ads.html">Leaderboards</a>
+        <a href="ads.html">Skyscrapers</a>
+        <a href="ads.html">Medium Rectangles</a>
+        <a href="tasks.html">Rewarded Ads</a>
+      </nav>
+    </div>
+    <div class="wrap foot-base">
+      <p class="foot-note">ExcelMovies is a demonstration ads-only experience. Every element you see is a sponsored ad placement.</p>
       <p class="copy">&copy; 2026 ExcelMovies — excelmovies.vercel.app</p>
     </div>
   </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
 
 </body>
 </html>

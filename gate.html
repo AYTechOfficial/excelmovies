@@ -6,47 +6,108 @@
   <title>Access Required — ExcelMovies</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><text x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>X</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --crimson: #e50914; --crimson-2: #ff3d4d; --gold: #f7c948;
+      --text: #f4f5f7; --muted: #98a1b3; --faint: #5c6577;
+      --line: rgba(255,255,255,.09); --line-2: rgba(255,255,255,.16);
+      --grad-brand: linear-gradient(120deg, #ff4d5e 0%, #e50914 45%, #8f0510 100%);
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      background: #0b0e14; color: #e7eaf0; font-family: Arial, Helvetica, sans-serif;
+      background: #06070c; color: var(--text);
+      font-family: "Manrope", -apple-system, "Segoe UI", sans-serif; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; overflow: hidden; position: relative;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(55% 45% at 80% 0%, rgba(229, 9, 20, .22), transparent 60%),
+        radial-gradient(45% 40% at 8% 85%, rgba(124, 58, 237, .16), transparent 60%),
+        radial-gradient(40% 35% at 90% 95%, rgba(247, 201, 72, .08), transparent 60%);
+    }
+    body::after {
+      content: ""; position: fixed; inset: 0; pointer-events: none;
+      background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 26px 26px; opacity: .35;
     }
     .card {
-      width: min(400px, 90vw); background: #12161f; border: 1px solid #232a38;
-      border-radius: 16px; padding: 34px 30px; text-align: center;
- box-shadow: 0 24px 60px rgba(0,0,0,.5);
+      position: relative; width: min(420px, 92vw);
+      background: rgba(13, 15, 23, .82);
+      border: 1px solid var(--line-2); border-radius: 22px;
+      padding: 40px 34px; text-align: center;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .65), inset 0 1px 0 rgba(255,255,255,.08);
+      backdrop-filter: blur(22px) saturate(140%);
+      animation: rise .6s cubic-bezier(.22, .7, .2, 1);
     }
-    .logo { font-size: 24px; font-weight: 800; letter-spacing: .5px; }
-    .logo span { color: #e50914; }
-    h1 { font-size: 18px; margin: 18px 0 6px; }
-    p.sub { color: #8a93a6; font-size: 13px; line-height: 1.5; margin-bottom: 22px; }
+    @keyframes rise { from { opacity: 0; transform: translateY(22px) scale(.98); } to { opacity: 1; transform: none; } }
+    .emblem {
+      width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 18px;
+      background: var(--grad-brand);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 14px 40px rgba(229, 9, 20, .45), inset 0 1px 0 rgba(255,255,255,.3);
+      font: 800 26px/1 "Sora", sans-serif; color: #fff;
+    }
+    .logo { font: 800 24px/1 "Sora", sans-serif; letter-spacing: .3px; }
+    .logo b {
+      background: var(--grad-brand);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      font-weight: 800;
+    }
+    h1 { font: 700 17px/1.4 "Sora", sans-serif; margin: 20px 0 6px; }
+    .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+    .field { position: relative; }
     input {
-      width: 100%; padding: 14px 16px; font-size: 16px; color: #fff;
-      background: #0b0e14; border: 1px solid #2c3446; border-radius: 10px; outline: none;
+      width: 100%; padding: 15px 16px 15px 46px; font: 600 15.5px/1.3 "Manrope", sans-serif;
+      color: #fff; background: rgba(6, 7, 12, .8);
+      border: 1px solid var(--line-2); border-radius: 14px; outline: none;
+      transition: border-color .2s, box-shadow .2s;
     }
-    input:focus { border-color: #e50914; }
+    .field svg {
+      position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+      width: 17px; height: 17px; color: var(--faint);
+    }
+    input:focus { border-color: var(--crimson-2); box-shadow: 0 0 0 4px rgba(229, 9, 20, .18); }
     button {
-      width: 100%; margin-top: 12px; padding: 14px; font-size: 15px; font-weight: 700;
-      color: #fff; background: #e50914; border: 0; border-radius: 10px; cursor: pointer;
+      width: 100%; margin-top: 14px; padding: 15px;
+      font: 800 15px/1 "Manrope", sans-serif; letter-spacing: .3px;
+      color: #fff; background: var(--grad-brand); border: 0; border-radius: 14px; cursor: pointer;
+      box-shadow: 0 12px 34px rgba(229, 9, 20, .4), inset 0 1px 0 rgba(255,255,255,.22);
+      transition: transform .16s cubic-bezier(.22, .7, .2, 1), filter .16s;
+      position: relative; overflow: hidden;
     }
-    button:hover { background: #f6121d; }
-    button:disabled { opacity: .6; cursor: wait; }
-    .err { color: #ff6b6b; font-size: 13px; min-height: 18px; margin-top: 12px; }
-    .lock { font-size: 34px; }
+    button::after {
+      content: ""; position: absolute; top: 0; bottom: 0; width: 36%; left: -50%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
+      transform: skewX(-20deg); animation: sheen 4.2s ease infinite;
+    }
+    @keyframes sheen { 0%, 55% { left: -60%; } 85%, 100% { left: 130%; } }
+    button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    button:active { transform: scale(.98); }
+    button:disabled { opacity: .6; cursor: wait; transform: none; }
+    .err { color: #ff6b6b; font-size: 13px; min-height: 20px; margin-top: 14px; font-weight: 600; }
+    .hint { margin-top: 18px; color: var(--faint); font-size: 11px; letter-spacing: .08em; }
   </style>
 </head>
 <body>
   <main class="card">
-    <div class="lock">🔒</div>
-    <div class="logo">Excel<span>Movies</span></div>
-    <h1>Access Code Required</h1>
-    <p class="sub">This site is private. Enter your access code to continue.</p>
+    <div class="emblem">X</div>
+    <div class="logo">Excel<b>Movies</b></div>
+    <h1>Members Only Screening</h1>
+    <p class="sub">This experience is private. Enter your access code to step inside.</p>
     <form id="gate-form" autocomplete="off">
-      <input id="code" type="password" inputmode="text" placeholder="Access code" autofocus required>
-      <button type="submit" id="go">Enter Site</button>
+      <div class="field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
+        <input id="code" type="password" inputmode="text" placeholder="Access code" autofocus required>
+      </div>
+      <button type="submit" id="go">Enter the Experience</button>
       <div class="err" id="err"></div>
     </form>
+    <p class="hint">30-DAY SESSION &middot; SERVER-SIDE VERIFIED</p>
   </main>
 
   <script>
@@ -75,7 +136,7 @@
         err.textContent = "Network error — check your connection and try again.";
       }
       btn.disabled = false;
-      btn.textContent = "Enter Site";
+      btn.textContent = "Enter the Experience";
     });
   </script>
 </body>
