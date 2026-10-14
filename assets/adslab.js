@@ -100,22 +100,21 @@
 
   /* ---------- banner loader with Adsterra auto-fallback (spec §7) ---------- */
   var SIZES = {
-    "728x90": "unit-r4zdvttw8",
-    "468x60": "unit-38tbyqp5y",
-    "320x50": "unit-52ou5j53t",
-    "320x100": "unit-n2cnjps79",
-    "300x250": "unit-go1fidksi",
-    "336x280": "unit-ii5t4os4x",
-    "160x600": "unit-xg5uzzqbx",
-    "300x600": "unit-4xxc94u58"
+    "728x90": "unit-egqwmwzxu",
+    "468x60": "unit-k6zy4xnmh",
+    "320x50": "unit-z1bjbs6yf",
+    "320x100": "unit-dt88tfear",
+    "300x250": "unit-b4xlc9tow",
+    "336x280": "unit-pihrtylg3",
+    "160x600": "unit-9bgw02x5g",
+    "300x600": "unit-mxp2pkylc"
   };
   var mounted = {};
-  /* AdsLab banner mounting is DISABLED: the banner unit IDs below belong to the
-   * old account, whose serve endpoint returns "Unauthorized Domain:
-   * excelmovies.vercel.app" inside every slot (cross-origin — cannot fall back
-   * to Adsterra). Set BANNERS_ENABLED = true and swap SIZES to the unit IDs
-   * created under the active "Excel Movies" site entry to re-enable. */
-  var BANNERS_ENABLED = false;
+  /* Banner units below belong to the active "Excel Movies" site entry — all 8
+   * verified against this domain via the serve endpoint (no "Unauthorized
+   * Domain" rejection). If a slot stays empty after GRACE, the Adsterra
+   * fallback swaps it so no ad box is ever left blank. */
+  var BANNERS_ENABLED = true;
   window.emAdslabUnit = function (size) {
     if (!BANNERS_ENABLED) return;
     var unit = SIZES[size];
