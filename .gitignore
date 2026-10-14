@@ -8,3 +8,6 @@ AdsLab Integration*
 # OS junk
 .DS_Store
 Thumbs.db
+
+# Codebuff workspace state (not project code)
+.freebuff/

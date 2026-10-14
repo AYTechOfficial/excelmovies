@@ -53,7 +53,6 @@ a { color: var(--accent-2); }
   text-align: center; font-size: 10px; letter-spacing: 2px;
   text-transform: uppercase; color: #5b6472; margin-top: -10px; margin-bottom: 14px;
 }
-.ad-native iframe { width: 100%; max-width: 900px; height: 320px; }
 
 /* ---------- hero ---------- */
 .hero { padding: 26px 0 10px; }
@@ -149,9 +148,6 @@ a { color: var(--accent-2); }
 .btn[data-em-rew] { cursor: pointer; background: #6a0dad; border: 0; font: inherit; }
 .btn[data-em-rew]:hover { box-shadow: 0 10px 24px rgba(106, 13, 173, .4); }
 .btn[data-em-rew][data-state="pending"] { opacity: .7; pointer-events: none; }
-.offerwall {
-  width: 100%; height: 800px; border: 0; border-radius: 12px; background: #fff;
-}
 
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }

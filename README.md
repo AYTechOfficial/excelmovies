@@ -7,10 +7,10 @@ placement. Built for the domain `excelmovies.vercel.app`.
 
 | Page | What it is |
 |------|------------|
-| `index.html` | Home — hero, ad wall, native ads, sponsor tiles, sidebar skyscrapers |
+| `index.html` | Home — hero, ad wall, sponsor tiles, sidebar skyscrapers |
 | `ads.html` | All Ads — every format showcased, repeated in every section |
 | `sponsored.html` | Sponsored — a click-wall of smartlink tiles (every tile = smartlink) |
-| `tasks.html` | Tasks — the AdsLab offerwall embedded full-page (offers, surveys, shortlinks) |
+| `tasks.html` | Tasks — banner wall + rewarded-ad buttons (offerwall removed) |
 | `go.html` | Go — **premium page**: popunder + smartlink ONLY (Adsterra's highest-CPM formats, ~$0.7–0.8 CPM). No banners, no social bar, no other formats competing. Every visible element is a smartlink. Reachable at `/go`, `/premium`, `/continue`. |
 | `404.html` | Not found — ad-stuffed anyway |
 
@@ -19,8 +19,6 @@ placement. Built for the domain `excelmovies.vercel.app`.
 ### Adsterra (all 10 units)
 
 - **Popunder** — `<head>` of every page (one per page, as recommended)
-- **Social Bar** — just before `</body>` on every page
-- **Native Banner** — via `ads/native.html` iframe, repeated across pages
 - **Banners** (728x90, 468x60, 320x50, 300x250, 160x600, 160x300) — via per-format
   wrapper files in `ads/`, repeated many times per page
 - **Smartlink** — the href of every clickable tile/button site-wide
@@ -36,9 +34,7 @@ Implemented — the client-side subset that a static site can run:
 | Unit | Placement | Where it runs |
 |---|---|---|
 | Banners (all 8 sizes: 728x90, 468x60, 320x50, 320x100, 300x250, 336x280, 160x600, 300x600) | `unit-*` IDs | every page, each size at most once per page (per spec), responsive gating: 728x90/468x60 desktop-only, 320x50/320x100 mobile-only |
-| Interstitial | `int-euZL0Ewr9Fql` | fires on the visitor's first click on every page, rate-limited to 1 per 60s per session (spec's fraud warning) |
-| Rewarded | `rew-wlWIoORtfsDg` | "Watch a Rewarded Ad" buttons on every page |
-| Tasks offerwall | `task-qhgx1qTcI5gH` | embedded iframe on `tasks.html`, plus "open in new tab" fallback |
+| Rewarded | `rew-bLIxi4pMugOB` | "Watch a Rewarded Ad" buttons on every page |
 
 All of it loads through `assets/adslab.js` (one file to edit if placement IDs change):
 
@@ -56,8 +52,7 @@ not serve on `excelmovies.vercel.app`. Every AdsLab slot therefore self-checks a
 4-second grace period: if it hasn't filled, it's swapped for the matching Adsterra banner
 (nearest size for formats Adsterra doesn't offer — 320x100→320x50, 336x280→300x250,
 300x600→160x600). Rewarded buttons route to the Adsterra smartlink when the AdsLab SDK
-is absent, and a blank offerwall iframe hides itself so the Adsterra content below it
-takes over. Result: **no ad box is ever empty — Adsterra loads everywhere.** If AdsLab
+is absent. Result: **no ad box is ever empty — Adsterra loads everywhere.** If AdsLab
 starts serving (after adding this domain in their dashboard), it wins the race and its
 own creative stays. The swap is one file (`assets/adslab.js`) — adjust `GRACE` to tune.
 
@@ -72,6 +67,25 @@ The AdsLab **Publisher API Key** and **Security Hash** are server-only values. T
 (`AdsLab Integration Spec — vazionixfaucet.md`) is listed in `.gitignore` and is never
 committed. If those keys were ever pushed to a public repo in any other project, rotate
 them in the AdsLab dashboard.
+
+## Access gate (server-side)
+
+The whole site sits behind an access code. It is enforced **on Vercel's servers**
+(not in the browser), so page content is never served to anyone without the code:
+
+- `middleware.js` — Edge Middleware. Every request without a valid signed cookie
+  is 302-redirected to `/gate` (only `/gate.html` and `/api/login` are exempt).
+- `api/login.js` — checks the submitted code **server-side** (timing-safe compare),
+  sets an `HttpOnly` signed cookie valid for 30 days. Wrong code → 401, nothing set.
+- `lib/gate.mjs` — **the one file to edit to change the access code**. The code is
+  never shipped to browsers; the cookie holds only an HMAC-SHA256 token derived
+  from it, which cannot be forged without the code.
+- `gate.html` — the code-entry screen (self-contained, no external assets).
+- `tests/gate.test.mjs` — `node --test tests/gate.test.mjs` verifies middleware
+  gating, cookie issuance and the login flow end-to-end.
+
+Log in once → every page (including ad iframes) loads for 30 days. The gate also
+means AdsLab/Adsterra impressions only count for visitors who passed the code check.
 
 ## Smartlink
 

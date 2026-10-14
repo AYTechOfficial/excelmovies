@@ -12,9 +12,8 @@
   "use strict";
 
   /* ---------- config (public placement IDs from the spec) ---------- */
-  var INT = "int-euZL0Ewr9Fql";
-  var REW = "rew-wlWIoORtfsDg";
-  var TASK = "task-qhgx1qTcI5gH";
+  var INT = "int-cBazGC3l6mVv";
+  var REW = "rew-bLIxi4pMugOB";
   var SMARTLINK = "https://www.profitableratecpmnetwork.com/rdpxzj6ms4?key=eb56481bdb2b3fd568a2dc96e16e13c6";
 
   /* How long to wait for an AdsLab banner to fill before swapping to Adsterra. */
@@ -88,19 +87,6 @@
     var fn = window.adslabShowRewarded || window.showrew_adslab;
     if (!fn) return Promise.resolve(false);
     try { return Promise.resolve(fn()); } catch (e) { return Promise.resolve(false); }
-  };
-
-  /* Interstitial on first interaction, max 1 per 60s (spec fraud warning).
-   * When AdsLab is down, the Adsterra popunder already covers the first click,
-   * so nothing extra fires here. */
-  var LAST_INT = "em_lastint";
-  window.emFireInterstitial = function () {
-    var now = Date.now();
-    try {
-      if (Number(sessionStorage.getItem(LAST_INT)) > now - 60000) return;
-      sessionStorage.setItem(LAST_INT, now);
-    } catch (e) { /* storage blocked: fire anyway */ }
-    if (window.emAdslabLive()) window.emShowInterstitial();
   };
 
   /* ---------- banner loader with Adsterra auto-fallback (spec §7) ---------- */
@@ -180,33 +166,4 @@
     }
   });
 
-  /* ---------- interstitial on first interaction ---------- */
-  var firedEntry = false;
-  function entry() {
-    if (firedEntry) return;
-    firedEntry = true;
-    window.emFireInterstitial();
-  }
-  ["click", "keydown", "touchstart"].forEach(function (t) {
-    document.addEventListener(t, entry, { once: true, passive: true });
-  });
-
-  /* ---------- offerwall ---------- */
-  window.emTaskUrl = function () {
-    return "https://adslab.me/" + TASK + "/" + USER;
-  };
-  /* Hide an offerwall iframe that rendered nothing (about:blank = blocked),
-   * letting the Adsterra content below it take over the space. Cross-origin
-   * frames mean it DID load a real page, so they are left alone. */
-  window.emOfferwallWatch = function (frame) {
-    setTimeout(function () {
-      try {
-        var doc = frame.contentDocument;
-        var body = doc && doc.body;
-        if (body && body.childElementCount === 0 && body.innerHTML.trim() === "") {
-          frame.style.display = "none";
-        }
-      } catch (e) { /* cross-origin: loaded fine */ }
-    }, GRACE);
-  };
 })();

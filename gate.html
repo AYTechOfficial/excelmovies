@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Access Required — ExcelMovies</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e50914'/><text x='16' y='22' font-size='18' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>X</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: #0b0e14; color: #e7eaf0; font-family: Arial, Helvetica, sans-serif;
+    }
+    .card {
+      width: min(400px, 90vw); background: #12161f; border: 1px solid #232a38;
+      border-radius: 16px; padding: 34px 30px; text-align: center;
+ box-shadow: 0 24px 60px rgba(0,0,0,.5);
+    }
+    .logo { font-size: 24px; font-weight: 800; letter-spacing: .5px; }
+    .logo span { color: #e50914; }
+    h1 { font-size: 18px; margin: 18px 0 6px; }
+    p.sub { color: #8a93a6; font-size: 13px; line-height: 1.5; margin-bottom: 22px; }
+    input {
+      width: 100%; padding: 14px 16px; font-size: 16px; color: #fff;
+      background: #0b0e14; border: 1px solid #2c3446; border-radius: 10px; outline: none;
+    }
+    input:focus { border-color: #e50914; }
+    button {
+      width: 100%; margin-top: 12px; padding: 14px; font-size: 15px; font-weight: 700;
+      color: #fff; background: #e50914; border: 0; border-radius: 10px; cursor: pointer;
+    }
+    button:hover { background: #f6121d; }
+    button:disabled { opacity: .6; cursor: wait; }
+    .err { color: #ff6b6b; font-size: 13px; min-height: 18px; margin-top: 12px; }
+    .lock { font-size: 34px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="lock">🔒</div>
+    <div class="logo">Excel<span>Movies</span></div>
+    <h1>Access Code Required</h1>
+    <p class="sub">This site is private. Enter your access code to continue.</p>
+    <form id="gate-form" autocomplete="off">
+      <input id="code" type="password" inputmode="text" placeholder="Access code" autofocus required>
+      <button type="submit" id="go">Enter Site</button>
+      <div class="err" id="err"></div>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById("gate-form");
+    const input = document.getElementById("code");
+    const err = document.getElementById("err");
+    const btn = document.getElementById("go");
+
+    form.addEventListener("submit", async function (ev) {
+      ev.preventDefault();
+      err.textContent = "";
+      btn.disabled = true;
+      btn.textContent = "Checking…";
+      try {
+        const r = await fetch("/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code: input.value })
+        });
+        if (r.ok) {
+          location.replace("/");
+          return;
+        }
+        err.textContent = r.status === 401 ? "Wrong access code. Try again." : "Something went wrong (" + r.status + ").";
+      } catch (e) {
+        err.textContent = "Network error — check your connection and try again.";
+      }
+      btn.disabled = false;
+      btn.textContent = "Enter Site";
+    });
+  </script>
+</body>
+</html>
